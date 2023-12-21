@@ -11,7 +11,7 @@ cp index2.html ./public/index.html
 
 touch ./public/.nojekyll
 rsync -av images ./public/
-rsync -av render ./public/
+rsync -av meshes ./public/
 rsync -av site_libs ./public/
 
 ORGANIZATION=$1
@@ -23,7 +23,7 @@ sidebar_temp_file=$(mktemp) # main and org level sidebar
 sidebar_temp_file_2=$(mktemp) # project sidebar 2
 
 ## Sidebar content for index and org level pages
-for dir in ./render/*; do
+for dir in ./meshes/*; do
     if [ -d "$dir" ]; then
         dir_name=$(basename "$dir")
         html_safe_dir_name=$(html_safe "$dir_name")
@@ -32,16 +32,16 @@ for dir in ./render/*; do
     fi 
 done
 
-# Loop through files in the ./render directory
-# render
-# render/pacars
-# render/botarmbots
+# Loop through files in the ./meshes directory
+# meshes
+# meshes/pacars
+# meshes/botarmbots
 sidebarItems=$(cat "$sidebar_temp_file")
 sed -i "s|{{sidebar}}|$sidebarItems|g" "./public/index.html"
 sed -i "s/{{organization}}/$ORGANIZATION/g" "./public/index.html"
 sed -i "s/{{repo}}/$REPO/g" "./public/index.html"
 
-for org_dir in ./render/*; do
+for org_dir in ./meshes/*; do
     if [ -d "$org_dir" ]; then
         org_name_full=$(basename "$org_dir")
         org_name=$(html_safe "$org_name_full")
@@ -92,7 +92,7 @@ for org_dir in ./render/*; do
                     # if [ -f "$file" ]; then
                         filename=$(basename "$file")
                         filename_no_extension="${filename%.*}"
-                        echo "<div class=\"quarto-layout-row quarto-layout-valign-top\"><div class=\"quarto-layout-cell quarto-layout-cell-subref\" style=\"flex-basis: 100%; justify-content: center\" ><div id=\"fig-${filename_no_extension}\" class=\"quarto-figure quarto-figure-center anchored\" ><figure class=\"figure\"><p><img src=\"/$REPO/render/${org_name_full}/${project_name}/${filename}/${filename}.png\" class=\"img-fluid figure-img\" data-ref-parent=\"fig-figure3.1\" /></p><p></p><figcaption class=\"figure-caption\"> ${filename_no_extension} </figcaption><p></p></figure></div></div></div>" >> "$temp_file"   
+                        echo "<div class=\"quarto-layout-row quarto-layout-valign-top\"><div class=\"quarto-layout-cell quarto-layout-cell-subref\" style=\"flex-basis: 100%; justify-content: center\" ><div id=\"fig-${filename_no_extension}\" class=\"quarto-figure quarto-figure-center anchored\" ><figure class=\"figure\"><p><a href=\"/$REPO/meshes/${org_name_full}/${project_name}/${filename}\">${filename_no_extension}</a></p><p></p></figure></div></div></div>" >> "$temp_file"   
                         echo "<li> <a href=\"#fig-${filename_no_extension}\" id=\"toc-${filename_no_extension}\" class=\"nav-link active\" data-scroll-target=\"#fig-${filename_no_extension}\" >${filename_no_extension}</a></li>" >> "$temp_file_for_links"   
                     # fi
                 done
