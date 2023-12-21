@@ -94,7 +94,7 @@ for org_dir in ./meshes/*; do
                     # if [ -f "$file" ]; then
                         filename=$(basename "$file")
                         filename_no_extension="${filename%.*}"
-                        echo " wget \"/$REPO/meshes/${org_name_full}/${project_name}/${filename}\"" >> "$temp_file_for_sh"   
+                        echo " wget \"https://$ORG_NAME.github.io/$REPO/meshes/${org_name_full}/${project_name}/${filename}\"" >> "$temp_file_for_sh"   
                     # fi
                 done
                 cp "$temp_file_for_sh" "$project_dir_path/download.sh"
