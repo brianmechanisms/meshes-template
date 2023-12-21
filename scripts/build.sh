@@ -18,6 +18,7 @@ ORGANIZATION=$1
 REPO=$2
 
 temp_file=$(mktemp)  
+temp_file_for_sh=$(mktemp)  
 temp_file_for_links=$(mktemp) 
 sidebar_temp_file=$(mktemp) # main and org level sidebar
 sidebar_temp_file_2=$(mktemp) # project sidebar 2
@@ -87,7 +88,18 @@ for org_dir in ./meshes/*; do
 
                 # Loop through files in the directory
                 echo "" > "$temp_file"
+                echo "#!/bin/bash" > "$temp_file_for_sh"
                 echo "" > "$temp_file_for_links"
+                for file in "$project_dir_path/"*; do
+                    # if [ -f "$file" ]; then
+                        filename=$(basename "$file")
+                        filename_no_extension="${filename%.*}"
+                        echo " wget \"/$REPO/meshes/${org_name_full}/${project_name}/${filename}\"" >> "$temp_file_for_sh"   
+                    # fi
+                done
+                cp "$temp_file_for_sh" "$project_dir_path/download.sh"
+                chmod +x "$project_dir_path/download.sh"
+                echo "<div class=\"quarto-layout-row quarto-layout-valign-top\"><div class=\"quarto-layout-cell quarto-layout-cell-subref\" style=\"flex-basis: 100%; justify-content: center\" ><div id=\"fig-${download}\" class=\"quarto-figure quarto-figure-center anchored\" ><figure class=\"figure\"><p><a href=\"/$REPO/meshes/${org_name_full}/${project_name}/download.sh\">download.sh</a></p><p></p></figure></div></div></div>" >> "$temp_file" 
                 for file in "$project_dir_path/"*; do
                     # if [ -f "$file" ]; then
                         filename=$(basename "$file")
