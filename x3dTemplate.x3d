@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+<head>
+<meta name="generator" content="Webots" />
+<meta name="version" content="R2023b" />
+</head>
+<Scene>
+<WorldInfo id='n2' docUrl='https://cyberbotics.com/doc/reference/worldinfo' basicTimeStep='32' coordinateSystem='ENU' lineScale='0.1'></WorldInfo>
+<Viewpoint id='n3' docUrl='https://cyberbotics.com/doc/reference/viewpoint' orientation='-0.10884636 -0.039990064 0.9932539 3.8414283' position='1.0285211 0.9698717 0.2250861' exposure='1' bloomThreshold='21' zNear='0.05' zFar='0' followSmoothness='0.5' ambientOcclusionRadius='2'></Viewpoint>
+<Background id='n4' docUrl='https://cyberbotics.com/doc/reference/background' rightUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_right.jpg"' rightIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_right.hdr"' leftUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_left.jpg"' leftIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_left.hdr"' topUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_top.jpg"' topIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_top.hdr"' bottomUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_bottom.jpg"' bottomIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_bottom.hdr"' frontUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_front.jpg"' frontIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_front.hdr"' backUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_back.jpg"' backIrradianceUrl='"https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/cubic/mountains_back.hdr"' ></Background>
+<DirectionalLight id='n5' docUrl='https://cyberbotics.com/doc/reference/directionallight' ambientIntensity='1' direction='0.55 -0.6 -1' intensity='2.7' castShadows='TRUE'></DirectionalLight>
+<Transform id='n160' docUrl='https://cyberbotics.com/doc/reference/transform'><CadShape id='n161' docUrl='https://cyberbotics.com/doc/reference/cadshape' url='"{{obj}}" "{{mtl}}"'></CadShape></Transform>
+</Scene>
+</X3D>
